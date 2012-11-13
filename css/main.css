@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Javier Centurion's custom styles
+   ========================================================================== */
+hr {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+ul.nav.nav-tabs.fixed {
+    margin-bottom: 7px;
+}
+
+div.sidebar {
+    border-right: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    padding-top: 0;
+    height: 395px;
+}
+
+div.icon-search {
+    position: absolute;
+    margin-top: -22px;
+    margin-left: 167px;
+}
+
+div.deployments {
+    margin-left: 11px;
+}
+
+    div.deployments > div.list {
+        width: 78% !important;
+        height: 317px !important;
+        margin-bottom: 11px;
+        border: 1px solid #DDD;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        margin-bottom: 11px;
+    }
+
+        div.deployments > div.list > div.topbar {
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+
+            div.deployments > div.list > div.topbar > div.status {
+                position: absolute;
+                margin-top: 6px;
+                margin-left: 15px;
+            }
+
+        div.deployments > div.list > div.bottombar > div.pagination {
+            margin-bottom: 0 !important;
+            margin-top: 5px;
+        }
+
+            div.deployments > div.list > div.bottombar > div.pagination > ul {
+                margin-bottom: 5px;
+            }
+
+    div.deployments > div.faceted-search {
+        width: 21% !important;
+        margin-bottom: 11px;
+        float: right;
+        margin-left: 0 !important;
+        /*border-left: 1px solid #DDD;
+        border-top: 1px solid #DDD;
+        -webkit-border-top-left-radius: 4px;
+        border-top-left-radius: 4px;
+        -moz-border-radius-topleft: 4px;*/
+    }
+
+div.width-fixed {
+    width: 1170px !important;
+}
+
+div.toolbar {
+    margin-left: 11px !important;
+}
+
+    div.toolbar > div.last-update {
+        font-style: italic;
+        margin-right: 31px;
+        margin-top: 17px;
+        font-size: 11px;
+    }
+
+    div.toolbar.bottom {
+        margin-bottom: 11px;
+        width: 765px;
+    }
+
+div.topbar {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+    div.topbar > div.navbar-inner {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+    }
+
+div.navbar-toolbar {
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+div.navbar > div.navbar-inner {
+    min-height: 20px;
+}
+
+div.total-indicator {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    width: 5px;
+    height: 5px;
+    padding: 3px;
+    background: #BEBEBE;
+    color: white;
+    font-size: 11px;
+    font-weight: bolder;
+    text-shadow: none;
+    display: inline;
+    margin-right: 7px;
+}
+
+li.no-margin {
+    margin-left: 0px !important;
+}
+
+div.no-margin {
+    margin-left: 0px !important;
+}
+
+div.pagination > ul > li > a {
+    color: #000 !important;
+}
+
+div.deploy {
+    width: 159px;
+    height: 55px;
+}
+
+    div.deploy > div.span12 > div.title {
+        font-weight: bold;
+        margin-top: 4px;
+    }
+
+    div.deploy > div.toolbar {
+        margin-top: 5px;
+    }
+
+    div.deploy > div.span12 > div.buttons a {
+        color: #999;
+        font-size: 11px;
+        text-decoration: underline;
+    }
+
+        div.deploy > div.span12 > div.buttons a:hover {
+            color: black;
+        }
+
+        div.deploy > div.span12 > div.buttons a.hidden {
+            display: none;
+        }
+
+    div.deploy:hover {
+        border-color: #0088cc;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+        -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+        box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+        cursor: pointer;
+    }
+
+div.accordion-inner {
+    margin-left: 11px;
+}
+
+    div.accordion-inner > label {
+        font-size: 13px;
+        color: #666;
+    }
+
+div.accordion-heading > i {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 7px;
+}
+
+a.accordion-toggle {
+    color: #666 !important;
+    font-size: 13px !important;
+    margin-left: 11px;
+}
+
+    a.accordion-toggle:hover {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+input.search-query {
+    padding-right: 25px !important;
+    width: 150px !important;
+}
+
+button.btn {
+    margin-bottom: 9px;
+    border-left: 0 none;
+}
+
+ul.thumbnails {
+    width: 95%;
+    height: 234px !important;
+    margin-left: auto !important;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+    ul.thumbnails > li {
+        margin-bottom: 7px;
+    }
+    
+    ul.thumbnails li:nth-of-type(4n+1) {
+        margin-left: 0 !important;
+    }
+
+ul.centered {
+    margin-left: 50px !important;
+}
+
+ul.nav > li {
+    line-height: 7px;
+}
+
+ul.nav-stacked > li a {
+    border: 0 !important;
+}
+
+ul.nav-stacked > li.active a {
+    background-color: #DDD !important;
+    -webkit-border-top-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+a.brand {
+    background-image: url('../img/logo.png');
+    height: 47px;
+    width: 202px;
+    z-index: -1;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+    a.brand:hover {
+        background-image: url('../img/logo.png');
+        height: 47px;
+        width: 202px;
+        z-index: -1;
+        display: block;
+        background-repeat: no-repeat;
+        background-position-y: -66px;
+    }
+
+p.welcome {
+    margin-top: 15px;
+}
+
+    p.welcome > a {
+        color: #999;
+    }
+
+        p.welcome > a:hover {
+            color: white;
+        }
+
+        p.welcome > a.current-user {
+            text-decoration: none;
+        }

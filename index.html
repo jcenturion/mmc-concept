@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="css/bootstrap.icon-large.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+    <div class="navbar navbar-inverse topbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#"></a>
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right welcome">
+                        <a href="#" class="current-user">Javier Centurion</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Logout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container width-fixed">
+
+        <div class="row">
+            <div class="span12 width-fixed">
+                <ul class="nav nav-tabs fixed">
+                    <li class="disabled"><a href="#">Dashboard</a></li>
+                    <li class="disabled"><a href="#">Servers</a></li>
+                    <li class="active"><a href="#">Applications</a></li>
+                    <li class="disabled"><a href="#">Flows</a></li>
+                    <li class="disabled"><a href="#">Flow Analyzer</a></li>
+                    <li class="disabled"><a href="#">Alerts</a></li>
+                    <li class="disabled"><a href="#">Administration</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12 width-fixed">
+                <div class="row-fluid">
+                    <div class="span2 sidebar">
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li class="active"><a href="#">Deployments</a></li>
+                            <li class="disabled"><a href="#">Repository</a></li>
+                        </ul>
+                    </div>
+                    <div class="span10">
+                        <div class="row">
+                            <div class="span12">
+                                <div class="toolbar">
+                                    <button type="button" class="btn twipsy" data-title="create a new service" data-placement="bottom"><i class="icon-plus-sign"></i></button>
+                                    <button type="button" class="btn twipsy" data-title="refresh" data-placement="bottom"><i class="icon-refresh"></i></button>
+
+                                    <div class="pull-right">
+                                        <input type="text" class="search-query" placeholder="Search">
+                                        <div class="icon-search"></div>
+                                    </div>
+
+                                    <div class="pull-right last-update">Last update <strong>five minutes ago</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span12">
+                                <div class="deployments">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span12">
+                                <div class="navbar toolbar bottom">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>&copy; MuleSoft 2012</p>
+        </footer>
+
+    </div>
+
+    <script src="js/vendor/jquery-1.8.2.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/date.js"></script>
+    <script src="js/vendor/daterangepicker.js"></script>
+    <script src="js/vendor/handlebars-1.0.0.beta.6.js"></script>
+    <script src="js/vendor/ember-1.0.0-pre.2.js"></script>
+    <script src="js/vendor/mediator.js"></script>
+
+    <script type="text/x-handlebars" data-template-name="deployments-filter-template">
+        <ul class="nav centered">
+            <li class="active">
+                <a href="#" data-value="all" data-filter-type="">
+                    <div class="total-indicator">17</div>
+                    All
+                </a>
+            </li>
+            <li>
+                <a href="#" data-value="true" data-filter-type="reconciled">
+                    <div class="total-indicator">11</div>
+                    Reconciled
+                </a>
+            </li>
+            <li>
+                <a href="#" data-value="false" data-filter-type="reconciled">
+                    <div class="total-indicator">&nbsp;6&nbsp;</div>
+                    Not Reconciled
+                </a>
+            </li>
+            <li>
+                <a href="#" data-value="deploying" data-filter-type="status">
+                    <div class="total-indicator">&nbsp;2&nbsp;</div>
+                    Deploying
+                </a>
+            </li>
+            <li>
+                <a href="#" data-value="redeploying" data-filter-type="status">
+                    <div class="total-indicator">&nbsp;1&nbsp;</div>
+                    Redeploying
+                </a>
+            </li>
+        </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="deployments-toolbar-template">
+        <div class="status">showing {{content.length}} out of {{elements.length}}</div>
+        <div class="daterange pull-right">
+            <i class="icon-calendar"></i>
+            <span></span>
+            <b class="caret"></b>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="deployments-list-template">
+        <ul class="thumbnails">
+            {{#each content}}
+                <li class="span3">
+                    <div class="thumbnail deploy">
+                        <div class="span12 no-margin">
+                            {{iconByStatus this }}
+                            <div class="pull-right title">{{this.name}}</div>
+                        </div>
+                        <div class="span12 no-margin toolbar">
+                            <div class="pull-left buttons">
+                                <a class="hidden" href="#">deploy</a>
+                                <a href="#">undeploy</a>
+                            </div>
+                            <div class="pull-right">
+                                <i class="icon-info-sign twipsy" data-title="more info" data-placement="bottom"></i>
+                                <i class="icon-refresh twipsy" data-title="redeploy" data-placement="bottom"></i>
+                                <i class="icon-trash twipsy" data-title="remove" data-placement="bottom"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}            
+        </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="deployments-pager-template">
+        <div class="pagination pagination-centered pagination-small">
+            <ul>
+                <li class="page" data-index="prev"><a href="#">&#171;</a></li>
+                {{ pager this }}
+                <li class="page" data-index="next"><a href="#">&#187;</a></li>
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="deployments-faceted-search-template">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <i class="icon-chevron-down"></i>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#faceted-search" href="#collapseOne">Servers
+                </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="server" data-value="MuleCluster">MuleCluster
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="server" data-value="MuleServer3">MuleServer3
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <i class="icon-chevron-right"></i>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#faceted-search" href="#collapseTwo">Service Type
+                </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="serviceType" data-value="Single">Single
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="serviceType" data-value="Cluster">Cluster
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <i class="icon-chevron-right"></i>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#faceted-search" href="#collapseThree">Mule Version
+                </a>
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="version" data-value="3.2.0">3.2.0
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <i class="icon-chevron-right"></i>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#faceted-search" href="#collapseFour">Group
+                </a>
+            </div>
+            <div id="collapseFour" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="group" data-value="Group1">Group1
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" data-filter-type="group" data-value="Group2">Group2
+                    </label>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="deployments-list-icon-status-template">
+        <div class="pull-left twipsy" data-title="{{title}}" data-placement="left">
+            <i class="icon-large {{icon}}"></i>
+        </div>
+    </script>
+
+    <script src="js/definitions.js"></script>
+
+    <script src="js/models/deployment.model.js"></script>
+    <script src="js/models/deploymentCollection.model.js"></script>
+
+    <script>
+        var model = Mule.DeploymentCollection.create();
+        (function () {
+            $('body').on('mouseover', function () {
+                $('.twipsy').tooltip();
+            });
+        })();
+    </script>
+
+    <script src="js/controllers/deploymentsFacetedSearch.controller.js"></script>
+    <script src="js/controllers/deploymentsFilter.controller.js"></script>
+    <script src="js/controllers/deploymentsList.controller.js"></script>
+    <script src="js/controllers/deploymentsPager.controller.js"></script>
+    <script src="js/controllers/deploymentsToolbar.controller.js"></script>
+
+    <script src="js/views/deploymentsFacetedSearch.view.js"></script>
+    <script src="js/views/deploymentsFilter.view.js"></script>
+    <script src="js/views/deploymentsList.view.js"></script>
+    <script src="js/views/deploymentsPager.view.js"></script>
+    <script src="js/views/deploymentsToolbar.view.js"></script>
+
+    <script src="js/containers/deploymentsList.container.js"></script>
+    <script src="js/containers/deploymentsFacetedSearch.container.js"></script>
+
+    <script src="js/handlebars.helpers.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

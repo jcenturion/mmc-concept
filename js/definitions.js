@@ -1,0 +1,1 @@
+﻿var Mule = Ember.Application.create();
